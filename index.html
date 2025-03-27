@@ -64,7 +64,7 @@
   <script>
     async function loadXML() {
       try {
-        const response = await fetch('josh_espanola.xml');
+        const response = await fetch('josh_espanola');
         if (!response.ok) {
           throw new Error(`Error fetching XML: ${response.status}`);
         }
