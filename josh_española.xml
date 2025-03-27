@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+  <student>
+    <name>Juan Dela Cruz</name>
+    <course>BSIT</course>
+    <yearLevel>3bg2</yearLevel>
+    <adviser>Mr. Ramon Dela Cruz</adviser>
+    <schoolYear>2025-2026</schoolYear>
+    <photo>https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg</photo>
+  </student>
+  <student>
+    <name>Maria Clara</name>
+    <course>BSCS</course>
+    <yearLevel>3bg1</yearLevel>
+    <adviser>Ms. Teresa Santiago</adviser>
+    <schoolYear>2025-2026</schoolYear>
+    <photo>https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg</photo>
+  </student>
+  <student>
+    <name>Crisostomo Ibarra</name>
+    <course>BSIS</course>
+    <yearLevel>3bg2</yearLevel>
+    <adviser>Mr. Jose Garcia</adviser>
+    <schoolYear>2025-2026</schoolYear>
+    <photo>https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg</photo>
+  </student>
+  <student>
+    <name>Leonor Rivera</name>
+    <course>BSIT</course>
+    <yearLevel>3bg1</yearLevel>
+    <adviser>Ms. Angela Cruz</adviser>
+    <schoolYear>2025-2026</schoolYear>
+    <photo>https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg</photo>
+  </student>
+  <student>
+    <name>Jose Rizal</name>
+    <course>BSIT</course>
+    <yearLevel>3bg3</yearLevel>
+    <adviser>Mr. Andres Bonifacio</adviser>
+    <schoolYear>2025-2026</schoolYear>
+    <photo>https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg</photo>
+  </student>
+  <student>
+    <name>Emilio Aguinaldo</name>
+    <course>BSCS</course>
+    <yearLevel>3bg1</yearLevel>
+    <adviser>Ms. Melchora Aquino</adviser>
+    <schoolYear>2025-2026</schoolYear>
+    <photo>https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg</photo>
+  </student>
+  <student>
+    <name>Antonio Luna</name>
+    <course>BSIS</course>
+    <yearLevel>3bg3</yearLevel>
+    <adviser>Mr. Apolinario Mabini</adviser>
+    <schoolYear>2025-2026</schoolYear>
+    <photo>https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg</photo>
+  </student>
+  <student>
+    <name>Gregoria de Jesus</name>
+    <course>BSIT</course>
+    <yearLevel>3bg2</yearLevel>
+    <adviser>Ms. Gabriela Silang</adviser>
+    <schoolYear>2025-2026</schoolYear>
+    <photo>https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg</photo>
+  </student>
+  <student>
+    <name>Marcelo H. Del Pilar</name>
+    <course>BSCS</course>
+    <yearLevel>3bg1</yearLevel>
+    <adviser>Mr. Manuel Quezon</adviser>
+    <schoolYear>2025-2026</schoolYear>
+    <photo>https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg</photo>
+  </student>
+  <student>
+    <name>Apolinario Mabini</name>
+    <course>BSIS</course>
+    <yearLevel>3bg2</yearLevel>
+    <adviser>Mr. Emilio Jacinto</adviser>
+    <schoolYear>2025-2026</schoolYear>
+    <photo>https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg</photo>
+  </student>
+</students>
