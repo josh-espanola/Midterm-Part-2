@@ -1,101 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Colleges Library Users</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: #f1f1f1;
-            margin: 20px;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-        .card {
-            border: 2px solid #333;
-            padding: 15px;
-            width: 260px;
-            text-align: left;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: scale(1.05); /* Slightly enlarges */
-            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-        }
-        .card img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 2px solid #ccc;
-        }
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-        h1, h2 {
-            color: #333;
-        }
-    </style>
+  <title>ABC Colleges - Library Users</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 50px;
+    }
+    h2 {
+      text-align: center;
+      margin-top: -15px;
+      font-size: 24px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      justify-content: center;
+      margin: 20px 10%;
+    }
+    .card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: left;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+      width: 250px;
+    }
+    .card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      float: right;
+      margin-left: 10px;
+    }
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-    <h1>ABC Colleges</h1>
-    <h2>Library Users</h2>
-    <div class="container" id="library-users"></div>
 
-    <script>
-        function loadXML() {
-            fetch('josh_española.xml') 
-                .then(response => response.text())
-                .then(str => {
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(str, "text/xml");
-                    displayUsers(xmlDoc);
-                })
-                .catch(error => console.error("Error loading XML:", error));
+  <h1>ABC Colleges</h1>
+  <h2>Library users</h2>
+
+  <div class="container" id="studentCards"></div>
+
+  <script>
+    async function loadXML() {
+      try {
+        const response = await fetch('josh_española.xml');
+        if (!response.ok) {
+          throw new Error(`Error fetching XML: ${response.status}`);
         }
 
-        function displayUsers(xmlDoc) {
-            const users = xmlDoc.getElementsByTagName("user");
-            const container = document.getElementById("library-users");
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
 
-            for (let i = 0; i < users.length; i++) {
-                const name = users[i].getElementsByTagName("name")[0].textContent;
-                const course = users[i].getElementsByTagName("course")[0].textContent;
-                const yearLevel = users[i].getElementsByTagName("yearLevel")[0].textContent;
-                const adviser = users[i].getElementsByTagName("adviser")[0].textContent;
-                const schoolYear = users[i].getElementsByTagName("schoolYear")[0].textContent;
-                const photo = users[i].getElementsByTagName("photo")[0].textContent;
+        const students = xmlDoc.getElementsByTagName('student');
+        const container = document.getElementById('studentCards');
 
-                const userCard = document.createElement("div");
-                userCard.classList.add("card");
-                userCard.innerHTML = `
-                    <div class="card-header">
-                        <img src="${photo}" alt="User Photo">
-                        <strong>${name}</strong>
-                    </div>
-                    <p><strong>Course:</strong> ${course}</p>
-                    <p><strong>Year Level:</strong> ${yearLevel}</p>
-                    <p><strong>Adviser:</strong> ${adviser}</p>
-                    <p><strong>School Year:</strong> ${schoolYear}</p>
-                `;
-
-                container.appendChild(userCard);
-            }
+        for (let i = 0; i < students.length; i++) {
+          let card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <img src="${students[i].getElementsByTagName('photo')[0].textContent}" alt="Student Photo">
+            <h3>Name: ${students[i].getElementsByTagName('name')[0].textContent}</h3>
+            <p><strong>Course:</strong> ${students[i].getElementsByTagName('course')[0].textContent}</p>
+            <p><strong>Year Level / Section:</strong> ${students[i].getElementsByTagName('yearLevel')[0].textContent}</p>
+            <p><strong>Adviser:</strong> ${students[i].getElementsByTagName('adviser')[0].textContent}</p>
+            <p><strong>School Year:</strong> ${students[i].getElementsByTagName('schoolYear')[0].textContent}</p>
+          `;
+          container.appendChild(card);
         }
+      } catch (error) {
+        console.error('Error loading XML:', error);
+      }
+    }
 
-        window.onload = loadXML;
-    </script>
+    window.onload = loadXML;
+  </script>
+
 </body>
 </html>
