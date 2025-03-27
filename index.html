@@ -60,40 +60,47 @@
   <div class="container" id="studentCards"></div>
 
   <script>
-    async function loadXML() {
-      try {
-        const response = await fetch('josh_española.xml');
-        if (!response.ok) {
-          throw new Error(`Error fetching XML: ${response.status}`);
+        function loadXML() {
+            fetch('josh_española.xml') 
+                .then(response => response.text())
+                .then(str => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(str, "text/xml");
+                    displayUsers(xmlDoc);
+                })
+                .catch(error => console.error("Error loading XML:", error));
         }
 
-        const xmlText = await response.text();
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+        function displayUsers(xmlDoc) {
+            const users = xmlDoc.getElementsByTagName("user");
+            const container = document.getElementById("library-users");
 
-        const students = xmlDoc.getElementsByTagName('student');
-        const container = document.getElementById('studentCards');
+            for (let i = 0; i < users.length; i++) {
+                const name = users[i].getElementsByTagName("name")[0].textContent;
+                const course = users[i].getElementsByTagName("course")[0].textContent;
+                const yearLevel = users[i].getElementsByTagName("yearLevel")[0].textContent;
+                const adviser = users[i].getElementsByTagName("adviser")[0].textContent;
+                const schoolYear = users[i].getElementsByTagName("schoolYear")[0].textContent;
+                const photo = users[i].getElementsByTagName("photo")[0].textContent;
 
-        for (let i = 0; i < students.length; i++) {
-          let card = document.createElement('div');
-          card.className = 'card';
-          card.innerHTML = `
-            <img src="${students[i].getElementsByTagName('photo')[0].textContent}" alt="Student Photo">
-            <h3>Name: ${students[i].getElementsByTagName('name')[0].textContent}</h3>
-            <p><strong>Course:</strong> ${students[i].getElementsByTagName('course')[0].textContent}</p>
-            <p><strong>Year Level / Section:</strong> ${students[i].getElementsByTagName('yearLevel')[0].textContent}</p>
-            <p><strong>Adviser:</strong> ${students[i].getElementsByTagName('adviser')[0].textContent}</p>
-            <p><strong>School Year:</strong> ${students[i].getElementsByTagName('schoolYear')[0].textContent}</p>
-          `;
-          container.appendChild(card);
+                const userCard = document.createElement("div");
+                userCard.classList.add("card");
+                userCard.innerHTML = `
+                    <div class="card-header">
+                        <img src="${photo}" alt="User Photo">
+                        <strong>${name}</strong>
+                    </div>
+                    <p><strong>Course:</strong> ${course}</p>
+                    <p><strong>Year Level:</strong> ${yearLevel}</p>
+                    <p><strong>Adviser:</strong> ${adviser}</p>
+                    <p><strong>School Year:</strong> ${schoolYear}</p>
+                `;
+
+                container.appendChild(userCard);
+            }
         }
-      } catch (error) {
-        console.error('Error loading XML:', error);
-      }
-    }
 
-    window.onload = loadXML;
-  </script>
-
+        window.onload = loadXML;
+    </script>
 </body>
 </html>
