@@ -71,7 +71,7 @@
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
 
-        const students = xmlDoc.getElementsByTagName('student');
+        const table = document.getElementById('student');
         const container = document.getElementById('studentCards');
 
         for (let i = 0; i < students.length; i++) {
